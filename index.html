@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/Escudo_UPIICSA.png" />
+    <link rel="stylesheet" href="/css/index.css">
     <title>UPIICSA DATA</title>
 </head>
 <body>
     <section id="document-charge">
-
         <form id="upload-form" enctype="multipart/form-data">
             <input type="file" id="file-input" name="file" accept=".xlsx">
             <button type="submit">Cargar documento</button>
         </form>
+
+        <div id="upload-status"></div>
     </section>
+    <script src="/js/cargarDocumento.js"></script>
 </body>
 </html>
