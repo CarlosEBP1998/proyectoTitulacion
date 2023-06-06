@@ -12,7 +12,7 @@
     <section id="document-charge">
         <form id="upload-form" enctype="multipart/form-data">
             <input type="file" id="file-input" name="file" accept=".xlsx">
-            <button type="submit">Cargar documento</button>
+            <button id='chargeButton' type="submit" onclick="enviarArchivo()">Cargar documento</button>
         </form>
 
         <div id="upload-status"></div>
