@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="CSS/base.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>Prototipo</title>
+</head>
+<body>
+   
+  <div class="main">
+    <nav id="navbar-example2" class="navbar text-dark px-2 sticky-top border border-0 border-bottom rounded-bottom bg-opacity-50" style="background-color: #891e35; ">
+      <a class="navbar-brand " href="Base.html">
+        <img src="Static/ICON-UPIICSA.png" class="d-inline-block align-text-top" alt="Logo de UPIICSA_Home" width="50%" height="90%">
+      </a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="#scrollspyHeading1" style="color:black !important">Estadisticas Generales</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#scrollspyHeading2" style="color:black !important">Comparativa</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:black !important">Más...</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#scrollspyHeading3">Egresados</a></li>
+            <li><a class="dropdown-item" href="#scrollspyHeading4">Matriculados</a></li>
+            <li><a class="dropdown-item" href="#scrollspyHeading5">Reprobados</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="LogIN.html">Ingresar -></a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <br><br><br>
+    <div class="position-relative">
+      <div class="position-absolute top-0 start-50 translate-middle">
+        <h1>!Bienvenido¡</h1>
+      </div>
+      <br><br><br><br>
+      <div class="position-absolute top-150 start-50 translate-middle">
+        <p>En esta página podras encontrar información relacionada con las distintas</p>
+        <p>carreras de estudio disponibles al momento en la Unidad Profesional</p>
+        <p>Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)</p>
+      </div>
+    </div>
+
+    <br><br><br>
+    
+    <div class="container"><h2>Carreras</h2></div>
+     
+    <div>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="ingInformatica_Tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="color: #891e35 !important;">Ingeniería en Informática</button>
+        </li>
+        <li class="nav-item " role="presentation">
+          <button class="nav-link disabled" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Ciencias en Informática</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link disabled" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Ingeniería en Transporte</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link disabled" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">Ingeniería Industrial</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link disabled" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">Administración Industrial</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link disabled" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">Ingeniería ferroviaria</button>
+        </li>
+      </ul>
+      <br><br><br>
+
+         <ul class="nav nav-pills justify-content-center">
+           <li class="nav-item text-dark bg-opacity-25">
+             <a class="nav-link active plan" aria-current="page" href="#" style="color:#fff !important; background-color: #891e35 !important">Plan 2010</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#" style="color:black !important">Plan 2021</a>
+          </li>
+         </ul>
+         <div class="tab-content text-dark" id="myTabContent">
+           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+               <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="20px 150px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+                   <h4 id="scrollspyHeading1">Estadisticas Generales</h4>
+                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus laboriosam quaerat velit pariatur libero numquam, dolores fugiat at. Nemo, quod, qui id velit doloremque provident tenetur tempore vitae, ab soluta iusto asperiores nihil. Alias maxime ab magnam? Porro, totam amet odio qui rem provident! Minima dicta sunt vel vitae sequi nulla. Dolores sit libero sunt, adipisci quaerat labore tempora magni amet laboriosam facere accusamus natus quos veniam, cupiditate doloremque asperiores quod. Ipsum repellat corporis dolorem in dicta, iure praesentium, eos atque temporibus provident omnis similique a nostrum sequi debitis inventore facilis ducimus, quidem minus! Fuga mollitia obcaecati odit dignissimos ducimus a quis deleniti facere similique pariatur corporis in quia voluptatum, consequuntur fugit accusamus veritatis? Inventore, saepe sit maxime assumenda iusto cum odio ipsam eaque cupiditate. Explicabo laboriosam quaerat dolorum architecto officia totam quo, quas fuga eaque, sequi possimus error optio. Voluptatibus assumenda asperiores, numquam nesciunt sequi vitae accusantium laudantium sapiente facilis delectus, voluptas omnis nulla culpa, error dolor nostrum atque provident. Id quae accusantium tempore ea numquam delectus cum placeat sed laboriosam iure in non voluptate omnis atque nam saepe assumenda libero suscipit voluptas dicta, natus amet recusandae! Sequi esse magni nisi vitae nemo minima facere quos rem blanditiis quas voluptatibus odit cupiditate sapiente consequuntur atque, ad quod magnam! Nihil accusantium aspernatur eos, maiores quisquam praesentium aperiam veniam, ullam fugit sed officiis ab necessitatibus iste quibusdam placeat dolorem. Voluptates corporis harum esse itaque magnam ipsum enim repellendus, animi provident. Expedita accusantium inventore nulla quod dignissimos dolore obcaecati culpa eaque molestias! Provident vel consequuntur, accusamus placeat ullam fugiat corporis eum perspiciatis quos repellat qui aliquid. Pariatur esse nemo, accusamus qui dolor sint suscipit ducimus laudantium cupiditate fugit facere. Sapiente error autem quo quaerat illo velit aperiam tempora qui nihil neque odio, ab nulla vel quisquam inventore sint ratione et, necessitatibus reiciendis magni. Error nemo quae ipsa voluptatem id, dolore veritatis eius consequatur labore, repellat quaerat architecto dolorum, ut nisi consequuntur ratione. Cumque vitae explicabo dicta, repellat sunt iure, quis saepe et aperiam labore optio dolorum pariatur, soluta adipisci nihil magnam facere distinctio repudiandae? Nemo sint tempore amet cupiditate eius similique est dolorem ea repudiandae corrupti numquam culpa ducimus quibusdam accusamus molestiae ipsa minus, impedit ratione voluptate quae optio. Optio, corporis. Eum, neque sint laborum atque aliquam deserunt hic perspiciatis tempore doloribus. Unde eligendi autem tempora beatae et architecto totam excepturi facere labore, laboriosam dignissimos veritatis iusto, itaque cumque. Ducimus laborum quas facilis. Placeat molestias, ullam exercitationem tenetur ducimus repellendus debitis eveniet officiis. Magni corporis facere impedit rem est sunt, voluptate autem reprehenderit corrupti, eos nesciunt beatae eligendi maxime at tenetur perspiciatis enim! Dolorem fugit voluptate exercitationem eveniet velit ex error nobis eligendi dignissimos iste nam cum, maxime autem maiores. Vero ratione, labore, hic maxime eveniet accusantium aperiam, dolorum fugit non quisquam debitis! Eos facilis nemo quibusdam libero aliquid sapiente voluptatibus accusamus, iusto numquam nam aliquam eligendi praesentium rem quod, quia debitis nostrum veniam optio soluta est veritatis illo! Commodi quos delectus eos quas cumque tenetur enim cupiditate magnam, minima a veritatis asperiores quo facilis inventore vitae. Animi laudantium aliquid facilis eligendi magnam maxime suscipit architecto fugiat voluptate culpa cumque nesciunt optio voluptatum ad delectus, accusamus consectetur ex quaerat et? Perferendis libero beatae rem, quibusdam blanditiis quod doloremque aliquid alias soluta nulla, illo delectus ipsam nobis sequi, quae iste nostrum sapiente aliquam autem! Exercitationem eius, obcaecati minus blanditiis consequatur nemo ipsum, repellat illum quis ipsa tenetur recusandae nam non porro. Praesentium laudantium ratione nam quae provident! Atque facere corrupti, eveniet ratione nihil, corporis, ullam ex illum similique nisi numquam ipsum. Vitae libero incidunt quos placeat sint voluptate tenetur repudiandae? Eaque voluptatibus natus vero assumenda asperiores beatae animi, laboriosam non dolore, alias totam, quo repellendus! Necessitatibus officiis eum iste neque nam explicabo deserunt ab beatae quas et, voluptates reiciendis expedita rerum impedit consequatur ea odit cumque in blanditiis culpa veniam? Tempore molestias neque atque, minima beatae nulla, odit ea mollitia illo enim accusamus voluptate perspiciatis quidem inventore iusto! Officiis blanditiis amet odit eos, nisi vel deleniti eligendi delectus doloribus modi commodi perferendis repellat impedit cum temporibus consectetur sit, libero ducimus perspiciatis veritatis quod hic suscipit ipsa! Optio repellat quidem magni, provident quo recusandae asperiores in rerum amet odit aut pariatur accusantium totam nobis incidunt qui nulla velit voluptatibus deserunt. Praesentium, sint, adipisci aspernatur fugit, voluptates ut ratione magnam laudantium esse fugiat numquam! Expedita enim error nesciunt consequatur similique laboriosam natus corporis adipisci voluptatem possimus earum voluptate sunt maxime, ad, dolores aliquam quo et ipsum. Adipisci aperiam tempora in omnis ipsam, blanditiis sapiente sunt quis praesentium porro voluptatibus voluptate reiciendis assumenda mollitia debitis ipsum accusantium laboriosam dolores aut nesciunt dolore? Illum mollitia similique impedit optio sequi labore, iure corporis officia quaerat fugiat voluptates, nemo officiis doloribus aliquid quo reiciendis odit eos temporibus, saepe sunt! Obcaecati adipisci quam aperiam iusto doloribus facilis, maiores architecto. Cum ratione ea fugiat, saepe enim, animi natus odio repudiandae dolor delectus voluptate debitis molestiae perferendis soluta porro quam, sunt corporis obcaecati velit repellat! Alias blanditiis rem quo eius placeat ab! Odio corporis recusandae nulla distinctio reiciendis voluptatum quia? Eos nesciunt tempora adipisci quibusdam perspiciatis dolore. Aliquam quae nisi, minus iure dolor ex exercitationem quaerat mollitia blanditiis doloremque tenetur beatae explicabo fugiat vero obcaecati recusandae modi rem aut error repellat amet! Consectetur tempore, vitae perspiciatis atque architecto quaerat, aliquam ex harum aperiam corporis alias ipsa labore sed assumenda, officia voluptate maiores pariatur. Ex laboriosam unde distinctio ut eaque repudiandae ratione nulla.</p>
+                   <h4 id="scrollspyHeading2">Comparativa</h4>
+                   <p>...</p>
+                   <h4 id="scrollspyHeading3">Egresados</h4>
+                   
+                   <div id="grafica1">
+                      <div>
+                        <h1 class="tittle_grafico">Ejemplo de Grafica</h1>
+                      </div>
+                      <section class="container_grafico">
+                          <div class="grafico"></div>
+                          <div class="container_leyenda">
+                              <span class="leyenda_all">
+                                  <span class="color_regulares"></span>
+                                  <p class="alumnos">40% Regulares</p>
+                              </span>
+                              <span class="leyenda_all">
+                                  <span class="color_irregulares"></span>
+                                  <p class="alumnos">30% Irregulares</p>
+                              </span>
+                              <span class="leyenda_all">
+                                  <span class="color_desfazados"></span>
+                                  <p class="alumnos">18% Desfazados</p>
+                              </span>
+                              <span class="leyenda_all">
+                                  <span class="color_dictaminados"></span>
+                                  <p class="alumnos">12% Dictaminados</p>
+                              </span>
+                              <p class="total">Total:13,000 alumnos</p>
+                          </div>
+                      </section>
+                   </div>
+                  <h4 id="scrollspyHeading4">Matriculados</h4>
+                    <div class="card text-bg-primary mb-3" style="max-width: 54rem;">
+                      <div class="card-header">Header</div>
+                      <div class="card-body">
+                      <h5 class="card-title">Primary card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                   <h4 id="scrollspyHeading5">Reprobados</h4>
+                   <p>...</p>
+                 </div>
+           </div>
+           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+           <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+         </div>
+     </div>     
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</body>
+</html>
