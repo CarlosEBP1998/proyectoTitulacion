@@ -1,70 +1,69 @@
-import streamlit as st
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import OneHotEncoder
 
-# Función para cargar los datos de Excel
-def load_data(sheet_name):
-    data = pd.read_excel('data.xlsx', sheet_name=sheet_name)
-    return data
+# Leer los archivos de Excel
+file1 = pd.read_excel('file1.xlsx')
+file2 = pd.read_excel('file2.xlsx')
+file3 = pd.read_excel('file3.xlsx')
 
-# Función para entrenar el modelo
-def train_model(data):
-    X_train, X_test, y_train, y_test = train_test_split(data.drop('target', axis=1), data['target'], test_size=0.2)
-    model = RandomForestRegressor()
+# Combinar los datos en un solo DataFrame
+data = pd.concat([file1,file2,file3])
+
+# Crear una columna para el total de estudiantes
+data['total_estudiantes'] = data['Numero de Alumnos que Entren'] - data['Numero de Bajas Temporales'] - data['Numero de Bajas Definitivas']
+
+# Codificación One-Hot para la variable 'Semestre'
+encoder = OneHotEncoder(sparse_output=False)
+encoded_semestre = encoder.fit_transform(data[['Semestre']])
+encoded_semestre_df = pd.DataFrame(encoded_semestre, columns=encoder.get_feature_names_out(['Semestre']))
+
+# Agregar las columnas codificadas al DataFrame original
+data = pd.concat([data.reset_index(drop=True), encoded_semestre_df], axis=1)
+
+# Obtener una lista de todas las materias
+materias = data['Nombre de la Materia'].unique()
+
+# Inicializar un contador para la demanda total de secuencias
+total_demand_in_groups = 0
+
+# Para cada materia, entrenar un modelo y predecir la demanda
+for materia in materias:
+    # Solo usar los datos para la materia actual
+    data_materia = data[data['Nombre de la Materia'] == materia]
+
+    # Si no hay suficientes datos para esta materia, continuamos con la siguiente
+    if len(data_materia) < 2:
+        continue
+
+    # Asegúrate de que X y y solo contienen datos para la materia actual
+    X_materia = data_materia[['total_estudiantes', 'Semestre_Semestre1', 'Semestre_Semestre2']]
+    y_materia = data_materia['Cupo por unidad de secuencia']
+
+    # Dividir los datos en conjuntos de entrenamiento y prueba
+    X_train, X_test, y_train, y_test = train_test_split(X_materia, y_materia, test_size=0.2, random_state=42)
+
+    # Crear y entrenar el modelo de regresión lineal
+    model = LinearRegression()
     model.fit(X_train, y_train)
-    return model
 
-def main():
-    st.title('Predicción de Demanda de Secuencias en UPIICSA')
+    # Predecir la demanda para el conjunto de prueba
+    predictions = model.predict(X_test)
 
-    # Carga los datos
-    reprobacion_data = load_data('Índices de Reprobación').copy()
-    bajas_data = load_data('Dictámenes de Baja').copy()
-    ocupabilidad_data = load_data('Ocupabilidad de Materias').copy()
-    entrada_data = load_data('Entrada de Alumnos por Semestre').copy()
+    # Calcular la demanda real de secuencias (grupos que necesitan ser formados)
+    min_students_per_group = 6
+    max_students_per_group = 40
+    demand_in_groups = np.sum([np.ceil(prediction / max_students_per_group) for prediction in predictions])
 
-    # Calcula el número promedio de alumnos por secuencia
-    ocupabilidad_data['Alumnos por Secuencia'] = ocupabilidad_data['Total de Alumnos'] / ocupabilidad_data['Secuencia'].nunique()
+    # Si la predicción es menor que 6 (el mínimo requerido por secuencia), entonces establecemos el número de grupos a 1
+    demand_in_groups = np.where(demand_in_groups < 1, 1, demand_in_groups)
 
-    # Calcula el número de secuencias que se necesitan para cada semestre
-    entrada_data['Secuencias Necesarias'] = entrada_data['Entrada de Alumnos'] / ocupabilidad_data['Alumnos por Secuencia'].mean()
+    print(f"La demanda estimada de secuencias (grupos que necesitan ser formados) para la {materia} es de aproximadamente {demand_in_groups:.0f}")
 
-    # Crea el DataFrame que usarás para entrenar tu modelo
-    data = entrada_data.copy()  # Comienza con los datos de entrada
-    data['target'] = data['Secuencias Necesarias']  # Esto es lo que estás tratando de predecir
+    # Sumar la demanda de esta materia a la demanda total
+    total_demand_in_groups += demand_in_groups
 
-    # Selecciona todas las columnas de tipo 'object' (que suelen ser cadenas de texto en Pandas)
-    categorical_columns = data.select_dtypes(include=['object']).columns
-    # Codifica las columnas categóricas con One-Hot Encoding
-    data_encoded = pd.get_dummies(data, columns=categorical_columns)
-
-    # Verifica si hay columnas faltantes en los datos codificados
-    expected_columns = set(entrada_data.columns)
-    actual_columns = set(data_encoded.columns)
-    missing_columns = expected_columns.difference(actual_columns)
-    if missing_columns:
-        for column in missing_columns:
-            data_encoded[column] = 0
-
-    # Entrena el modelo con los datos codificados
-    model = train_model(data_encoded)
-
-    # Interfaz de usuario para ingresar los valores de entrada y hacer la predicción
-    st.subheader('Ingrese los valores de entrada:')
-    input_values = {}
-    for column in data.drop(['target'], axis=1).columns:
-        input_values[column] = st.number_input(column, value=0.0)
-
-    # Genera una lista de valores de entrada en el mismo orden que las columnas del DataFrame
-    input_data = [[input_values[column] for column in data.drop(['target'], axis=1).columns]]
-
-    # Realiza la predicción
-    prediction = model.predict(input_data)
-
-    # Muestra el resultado de la predicción
-    st.subheader('Resultado de la predicción:')
-    st.write('Número de secuencias necesarias:', prediction[0])
-
-if __name__ == "__main__":
-    main()
+# Imprimir la demanda total de secuencias
+print(f"La demanda total estimada de secuencias (grupos que necesitan ser formados) es de aproximadamente {total_demand_in_groups:.0f}")
