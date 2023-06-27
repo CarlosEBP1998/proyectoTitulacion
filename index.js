@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const {exec} = require('child_process');
 
 const app = express();
 
@@ -9,7 +10,7 @@ app.use(express.json());
 
 app.get('/calculos', (req, res) => {
     exec('echo "Hola"', (err, stdout, stderr) => {
-        console.log(stdout);
+        res.send(stdout);
     });
 });
 
