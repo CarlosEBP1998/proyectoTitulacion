@@ -1,4 +1,5 @@
 import streamlit as st
+import matplotlib.pyplot as mpl
 
 def main():
     st.title("BIENVENIDO AL:")
