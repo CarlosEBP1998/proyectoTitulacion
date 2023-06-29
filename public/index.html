@@ -47,13 +47,13 @@
           </div>
         <br><br><br><br><br><br><br><br><br>
         <div class="position-relative">
-            <form  class="position-absolute top-100 start-50 translate-middle text-center">
+            <form  id="formulario" class="position-absolute top-100 start-50 translate-middle text-center">
                 <br><br>
               <label for="fname">Usuario</label><br>
               <div class="input-group mb-3">
                 <span class="input-group-text">@</span>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                  <input id="userName" type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
                   <label for="floatingInputGroup1">ejemplo@ipn.mx</label>
                 </div>
               </div>
@@ -62,15 +62,16 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">🔑</span>
                 <div class="form-floating">
-                  <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                  <input  id="userPass" type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
                   <label for="floatingInputGroup1">***********</label>
                 </div>
               </div>
               <br>
-              <input type="submit" class="btn btn-outline-danger" value="Submit">
+              <input id="buttonLog" onclick="login()" type="submit" class="btn btn-outline-danger" value="Submit">
                 <br><br><br>
             </form>
         </div>
     </div>
+    <script src="./js/login.js"></script>
 </body>
 </html>
