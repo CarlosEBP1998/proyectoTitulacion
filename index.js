@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const {exec} = require('child_process');
 const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
 
 const app = express();
 
@@ -34,22 +35,34 @@ app.post("/login", (req, res) => {
         console.log('Conexión a la base de datos exitosa');
     });
 
-    connection.query(`SELECT nombre_Usuario, passw FROM USUARIO WHERE nombre_Usuario = '${usuarioId}' && passw = '${password}'`, function (error, results, fields) {
+    connection.query(`SELECT nombre_Usuario, passw FROM USUARIO WHERE nombre_Usuario = '${usuarioId}'`, function (error, results, fields) {
         if (error) {
           console.log('Hubo un error: ' + error);
         }
         else if( results.length > 0){
+
           res.setHeader("Access-Control-Allow-Origin", "*");
 
-          exec('streamlit run ./modulosPython/INICIO.py', (err, stdout, stderr) => {
-            res.send(stdout);
+          console.log(results[0].passw);
+          const hash = results[0].passw;
+
+          bcrypt.compare(password,hash, (err, resp) => {
+            console.log(resp);
+            if(resp == true){
+              console.log('CONFIRMADO');
+
+              exec('streamlit run ./modulosPython/INICIO.py', (err, stdout, stderr) => {
+                res.send(stdout);
+              });
+
+              res.send({respuesta: 'encontrado'});
+            }
+            else {
+              console.log('NO CONFIRMADO');
+              res.setHeader("Access-Control-Allow-Origin", "*")
+              res.send({respuesta: 'error'})
+            }
           });
-          
-          res.send({respuesta: 'encontrado'});
-        }
-        else {
-          res.setHeader("Access-Control-Allow-Origin", "*")
-          res.send({respuesta: 'error'})
         }
     });
 

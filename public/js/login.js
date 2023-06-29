@@ -26,7 +26,7 @@ function login () {
         .then(data => {
             if(data.respuesta == 'encontrado'){
                 // window.location.href = './Base_2010.html';
-                window.close();
+                location.reload();
             }
             else{
                 alert('USUARIO NO ENCONTRADO');
