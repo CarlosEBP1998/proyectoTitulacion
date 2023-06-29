@@ -25,7 +25,8 @@ function login () {
         .then(response => response.json())
         .then(data => {
             if(data.respuesta == 'encontrado'){
-                window.location.replace('./Base_2010.html');
+                // window.location.href = './Base_2010.html';
+                window.close();
             }
             else{
                 alert('USUARIO NO ENCONTRADO');

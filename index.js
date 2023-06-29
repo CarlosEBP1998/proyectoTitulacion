@@ -39,8 +39,13 @@ app.post("/login", (req, res) => {
           console.log('Hubo un error: ' + error);
         }
         else if( results.length > 0){
-          res.setHeader("Access-Control-Allow-Origin", "*")
-          res.send({respuesta: 'encontrado'})
+          res.setHeader("Access-Control-Allow-Origin", "*");
+
+          exec('streamlit run ./modulosPython/INICIO.py', (err, stdout, stderr) => {
+            res.send(stdout);
+          });
+          
+          res.send({respuesta: 'encontrado'});
         }
         else {
           res.setHeader("Access-Control-Allow-Origin", "*")
@@ -55,13 +60,13 @@ app.post("/login", (req, res) => {
 
 app.get('/calculos', (req, res) => {
 
-    exec('python3 ./modulosPython/Main_pruba.py', (err, stdout, stderr) => {
-        res.send(stdout);
-    });
-
-    // exec('streamlit run ./modulosPython/main.py', (err, stdout, stderr) => {
-    // //     res.send(stdout);
+    // exec('python3 ./modulosPython/Main_pruba.py', (err, stdout, stderr) => {
+    //     res.send(stdout);
     // });
+
+    exec('streamlit run ./modulosPython/INICIO.py', (err, stdout, stderr) => {
+         res.send(stdout);
+    });
 });
 
 //VALIDACION DE DOCUMENTOS;
