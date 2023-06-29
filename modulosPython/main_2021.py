@@ -87,5 +87,5 @@ def main():
         st.sidebar.title("Sumatoria total de secuencias")
         st.sidebar.write(f"Total: {total_demand_in_groups:.0f} secuencias")
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     main()
