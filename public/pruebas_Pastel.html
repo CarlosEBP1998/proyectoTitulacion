@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        :root
+        {
+            --color_regulares:#3b5998;
+            --color_irregulares:#00acce;
+            --color_desfazados:#e95950;
+            --color_dictaminados:#c8232c;
+            --background_color:rgb(69, 75, 108);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: var(--background_color);
+        }
+        .tittle_grafico{
+            margin-top: 100px;
+            text-align: center;
+            color: #fff;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container_grafico
+        {
+            width: 700px;
+            height:550px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-left:auto;
+            margin-right: auto;
+        }
+        .grafico
+        {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-image: conic-gradient(var(--color_regulares)40%,
+                                            var(--color_irregulares)40% 70%,
+                                            var(--color_desfazados)70% 88%,
+                                            var(--color_dictaminados)88%);
+            box-shadow: 1px 1px 5px 1px rgb (70, 70, 70);
+        }
+        .leyenda_all
+        {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        [class^="color_"]
+        {
+            width: 15px;
+            height: 15px;
+            background-color: var(--color_regulares);
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+        .color_irregulares
+        {
+            background-color: var(--color_irregulares);
+        }
+        .color_desfazados
+        {
+            background-color: var(--color_desfazados);
+        }
+        .color_dictaminados
+        {
+            background-color: var(--color_dictaminados);
+        }
+        .alumnos
+        {
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            line-height: 1.6;
+        }
+        .total
+        {
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 10px;
+            border-radius: 3px;
+            background-color: rgb(30, 50, 70);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="tittle_grafico">Ejemplo de Grafica</h1>
+    </div>
+    <section class="container_grafico">
+        <div class="grafico"></div>
+        <div class="container_leyenda">
+            <span class="leyenda_all">
+                <span class="color_regulares"></span>
+                <p class="alumnos">40% Regulares</p>
+            </span>
+            <span class="leyenda_all">
+                <span class="color_irregulares"></span>
+                <p class="alumnos">30% Irregulares</p>
+            </span>
+            <span class="leyenda_all">
+                <span class="color_desfazados"></span>
+                <p class="alumnos">18% Desfazados</p>
+            </span>
+            <span class="leyenda_all">
+                <span class="color_dictaminados"></span>
+                <p class="alumnos">12% Dictaminados</p>
+            </span>
+            <p class="total">Total:13,000 alumnos</p>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="CSS/base.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>Prototipo</title>
+</head>
+<body>
+  <!--Este es el div principal y es usado para poder centrar todos los demas contenidos dentro de el-->
+    <div class="main position-relative">
+      <!--Esta es la clase de la barra de hasta arriba -->
+        <nav id="navbar-example2" class="navbar text-dark px-2 sticky-top border border-0 border-bottom rounded-bottom bg-opacity-50" style="background-color: #891e35; ">
+            <a class="navbar-brand " href="Base_2010.html">
+              <img src="Static/ICON-UPIICSA.png" class="d-inline-block align-text-top" alt="Logo de UPIICSA_Home" width="50%" height="90%">
+            </a>
+          </nav>
+          <br><br><br>
+          <!--Div necesario para mostrar la barra de progreso dentro de los distintas pantallas de gestión escolar-->
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">33.3%</div>
+          </div>
+          <br><br><br>
+          <div class="position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle">
+              <h1>!Bienvenido¡</h1>
+            </div>
+            <br><br><br><br><br><br>
+            <div class="position-absolute top-150 start-50 translate-middle text-center">
+              <p>En esta página podras encontrar los pasos necesarios para el proceso</p>
+              <p>de cálculo de predicción de las secuencias del plan 2010.</p>
+              <p>El paso uno es subir los archivos historicos de los 3 ciclos escolares recientes.</p>
+              <p>Para ello  solo sube los archivos que se piden...</p>
+            </div>
+            <br><br><br>
+            <br>
+          <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item text-dark bg-opacity-25">
+              <a class="nav-link active plan" aria-current="page" href="#" style="color:#fff !important; background-color: #891e35 !important">Plan 2010</a>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" aria-current="page" href="pantalla1Gest_2021.html" style="color:black !important">Plan 2021</a>
+           </li>
+          </ul><br>
+          </div>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      
+
+          <form  class="position-absolute top-100 start-50 translate-middle text-center mx-auto">
+            <br><br>
+            <h2>Predicción de demanda de Secuencias para el plan</h2>
+            <h2>2010 del Programa Académico de</h2>
+            <h2>Ingeniería en Informática</h2>
+            <br><br>
+          <div class="position-relative ">
+            <div class="position-absolute top-0 start-50 translate-middle">
+              <h2>Archivo 1</h2>
+            </div><br>
+            <label for="fname" class="text-center">Seleccione el archivo historico número 1:</label><br><br>
+            <div>
+              <input class="form-control form-control-lg mx-auto" id="formFileLg" type="file" style="width: 90%">
+            </div>
+            <br><br><br>
+            <div class="position-absolute top-150 start-50 translate-middle text-center">
+              <p>Seleccione las columnas que deseas utilizar en el Archivo historico 1 que se usará para realizar la predicción de secuencias</p>
+            </div>
+            <br><br>
+
+            <!--Se tiene le opción de elegir entre estos 2 estilos pero en el caso de este seria necesario un script que te detecte multiples selecciones-->
+            <select class="form-select form-select-lg mb-3 mx-auto" aria-label=".form-select-lg example multiple select" style="width: 90%">
+              <option selected>Elige una opción</option>
+              <option value="1">Semestre</option>
+              <option value="2">Número de alumnos que entran</option>
+              <option value="4">Número de Bajas temporales</option>
+              <option value="5">Número de Bajas definitivas</option>
+              <option value="6">Cupo por unidad de Secuencia</option>
+              <option value="7">Número de reprobados</option>
+              <option value="8">Nombre de la Materia</option>
+              <option value="9">Número de Salón</option>
+            </select><br>
+
+            <!--En este es posible realizar muchas selecciones pero es necesario un script que te las detecte-->
+            <p>Utilice la tecla "CTRL" + el click izquierdo del mouse para seleccionar múltiples opciones</p>
+            <select class="form-select form-select-lg mb-3 mx-auto" multiple aria-label=".form-select-lg example multiple select" style="width: 90%">
+              <option selected>Elige una opción</option>
+              <option value="1">Semestre</option>
+              <option value="2">Número de alumnos que entran</option>
+              <option value="4">Número de Bajas temporales</option>
+              <option value="5">Número de Bajas definitivas</option>
+              <option value="6">Cupo por unidad de Secuencia</option>
+              <option value="7">Número de reprobados</option>
+              <option value="8">Nombre de la Materia</option>
+              <option value="9">Número de Salón</option>
+            </select>
+
+            <!--puse este boton para jalar la info del select y ejecutar el script-->
+            <ul class="nav nav-pills justify-content-center">
+              <li class="nav-item text-dark bg-opacity-25">
+                <a class="nav-link active plan" aria-current="page" href="#" style="color:#fff !important; background-color: hsl(251, 62%, 54%) !important">Okey</a>
+              </li>
+            </ul>
+            <br><br>
+          </div>
+         
+          <div class="position-relative ">
+            <div class="position-absolute top-0 start-50 translate-middle">
+              <h2>Archivo 2</h2>
+            </div>
+            <br>
+            <label for="fname" class="text-center">Seleccione el archivo historico número 2:</label><br><br>
+            <div>
+              <input class="form-control form-control-lg mx-auto" id="formFileLg" type="file" style="width: 90%">
+            </div>
+            <br><br><br>
+            <div class="position-absolute top-150 start-50 translate-middle text-center">
+              <p>Seleccione las columnas que deseas utilizar en el Archivo historico 2 que se usará para realizar la predicción de secuencias</p>
+            </div>
+            <br><br>
+            <select class="form-select form-select-lg mb-3 mx-auto" aria-label=".form-select-lg example multiple select" style="width: 90%">
+              <option selected>Elige una opción</option>
+              <option value="1">Semestre</option>
+              <option value="2">Número de alumnos que entran</option>
+              <option value="4">Número de Bajas temporales</option>
+              <option value="5">Número de Bajas definitivas</option>
+              <option value="6">Cupo por unidad de Secuencia</option>
+              <option value="7">Número de reprobados</option>
+              <option value="8">Nombre de la Materia</option>
+              <option value="9">Número de Salón</option>
+            </select><br>
+
+            <p>Utilice la tecla "CTRL" + el click izquierdo del mouse para seleccionar múltiples opciones</p>
+
+            <select class="form-select form-select-lg mb-3 mx-auto" multiple aria-label=".form-select-lg example multiple select" style="width: 90%">
+              <option selected>Elige una opción</option>
+              <option value="1">Semestre</option>
+              <option value="2">Número de alumnos que entran</option>
+              <option value="4">Número de Bajas temporales</option>
+              <option value="5">Número de Bajas definitivas</option>
+              <option value="6">Cupo por unidad de Secuencia</option>
+              <option value="7">Número de reprobados</option>
+              <option value="8">Nombre de la Materia</option>
+              <option value="9">Número de Salón</option>
+            </select>
+
+            <ul class="nav nav-pills justify-content-center">
+              <li class="nav-item text-dark bg-opacity-25">
+                <a class="nav-link active plan" aria-current="page" href="#" style="color:#fff !important; background-color: hsl(251, 62%, 54%) !important">Okey</a>
+              </li>
+            </ul><br><br>
+          </div>
+           
+          <div class="position-relative ">
+            <div class="position-absolute top-0 start-50 translate-middle">
+              <h2>Archivo 3</h2>
+            </div>
+            <br>
+            <label for="fname" class="text-center">Seleccione el archivo  historico número 3:</label><br><br>
+            <div>
+              <input class="form-control form-control-lg mx-auto" id="formFileLg" type="file" style="width: 90%">
+            </div>
+            <br><br><br>
+            <div class="position-absolute top-150 start-50 translate-middle text-center">
+              <p>Seleccione las columnas que deseas utilizar en el Archivo historico 3 que se usará para realizar la predicción de secuencias</p>
+            </div>
+            <br><br>
+            <select class="form-select form-select-lg mb-3 mx-auto" aria-label=".form-select-lg example multiple select" style="width: 90%">
+              <option selected>Elige una opción</option>
+              <option value="1">Semestre</option>
+              <option value="2">Número de alumnos que entran</option>
+              <option value="4">Número de Bajas temporales</option>
+              <option value="5">Número de Bajas definitivas</option>
+              <option value="6">Cupo por unidad de Secuencia</option>
+              <option value="7">Número de reprobados</option>
+              <option value="8">Nombre de la Materia</option>
+              <option value="9">Número de Salón</option>
+            </select><br>
+
+            <p>Utilice la tecla "CTRL" + el click izquierdo del mouse para seleccionar múltiples opciones</p>
+
+            <select class="form-select form-select-lg mb-3 mx-auto" multiple aria-label=".form-select-lg example multiple select" style="width: 90%">
+              <option selected>Elige una opción</option>
+              <option value="1">Semestre</option>
+              <option value="2">Número de alumnos que entran</option>
+              <option value="4">Número de Bajas temporales</option>
+              <option value="5">Número de Bajas definitivas</option>
+              <option value="6">Cupo por unidad de Secuencia</option>
+              <option value="7">Número de reprobados</option>
+              <option value="8">Nombre de la Materia</option>
+              <option value="9">Número de Salón</option>
+            </select>
+            <ul class="nav nav-pills justify-content-center">
+              <li class="nav-item text-dark bg-opacity-25">
+                <a class="nav-link active plan" aria-current="page" href="#" style="color:#fff !important; background-color: hsl(251, 62%, 54%) !important">Okey</a>
+              </li>
+            </ul><br>
+          </div>
+          
+          <br><br><br>
+          <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item text-dark bg-opacity-25">
+              <a class="nav-link active plan" aria-current="page" href="pantalla2Gest_2010.html" style="color:#fff !important; background-color: #891e35 !important">Generar</a>
+            </li>
+          </ul>
+            <br><br><br>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>
