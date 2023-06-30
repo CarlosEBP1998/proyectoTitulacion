@@ -7,7 +7,7 @@ st.markdown(
     """
     <style>
     /* Estilos para el botón */
-    .login-button {
+    .login_button {
         position: fixed;
         top: 10px;
         right: 10px;
