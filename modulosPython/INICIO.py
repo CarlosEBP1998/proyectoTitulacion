@@ -1,5 +1,4 @@
 import streamlit as st
-import matplotlib.pyplot as mpl
 
 def main():
     st.title("BIENVENIDO AL:")
@@ -8,11 +7,11 @@ def main():
 
     if st.button('PLAN 2021'):
         st.write('Redirigiendo al cálculo para el PLAN 2021...')
-        st.markdown("[Ir al cálculo para el PLAN 2021](http://localhost:8504)")
+        st.markdown("[Ir al cálculo para el PLAN 2021](http://localhost:8503)")
 
     if st.button('PLAN 2010'):
         st.write('Redirigiendo al cálculo para el PLAN 2010...')
-        st.markdown("[Ir al cálculo para el PLAN 2010](http://localhost:8503)")
+        st.markdown("[Ir al cálculo para el PLAN 2010](http://localhost:8501)")
 
 if __name__ == "__main__":
     main()

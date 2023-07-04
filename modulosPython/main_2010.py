@@ -44,9 +44,9 @@ def main():
             data_nivel = data[data['Nivel'] == nivel]
 
             if nivel_selected == "Todos los niveles" or nivel == nivel_selected:
+                st.title(f"Nivel {nivel}")
                 materias = data_nivel['Nombre de la Materia'].unique()
                 demand_in_groups = 0
-                results = []
 
                 for materia in materias:
                     data_materia = data_nivel[data_nivel['Nombre de la Materia'] == materia]
@@ -66,14 +66,9 @@ def main():
 
                     min_students_per_group = 6
                     max_students_per_group = 40
-                    materia_demand_in_groups = np.sum([np.ceil(prediction / max_students_per_group) for prediction in predictions])
-                    results.append([materia, nivel, np.round(materia_demand_in_groups)])
+                    demand_in_groups += np.sum([np.ceil(prediction / max_students_per_group) for prediction in predictions])
 
-                    demand_in_groups += materia_demand_in_groups
-
-                df = pd.DataFrame(results, columns=['Materia', 'Nivel', 'Secuencias necesarias'])
-                st.title(f"{nivel}") 
-                st.dataframe(df)
+                    st.write(f"La materia {materia} pertenece a {nivel}. Necesita aproximadamente {demand_in_groups:.0f} secuencias (grupos que necesitan ser formados).")
 
                 if nivel_selected == "Todos los niveles":
                     nivel_demand_in_groups[nivel] = demand_in_groups
@@ -82,7 +77,7 @@ def main():
 
         st.sidebar.title("Total de secuencias por nivel")
         for nivel, demanda in nivel_demand_in_groups.items():
-            st.sidebar.write(f"{nivel}: {demanda:.0f} secuencias")
+            st.sidebar.write(f"Nivel {nivel}: {demanda:.0f} secuencias")
 
         st.sidebar.title("Sumatoria total de secuencias")
         st.sidebar.write(f"Total: {total_demand_in_groups:.0f} secuencias")

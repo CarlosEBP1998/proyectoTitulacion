@@ -44,9 +44,9 @@ def main():
             data_semestre = data[data['Semestre'] == semestre]
 
             if semestre_selected == "Todos los semestres" or semestre == semestre_selected:
+                st.title(f"Semestre {semestre}")
                 materias = data_semestre['Nombre de la Materia'].unique()
                 demand_in_groups = 0
-                results = []
 
                 for materia in materias:
                     data_materia = data_semestre[data_semestre['Nombre de la Materia'] == materia]
@@ -66,14 +66,9 @@ def main():
 
                     min_students_per_group = 6
                     max_students_per_group = 40
-                    materia_demand_in_groups = np.sum([np.ceil(prediction / max_students_per_group) for prediction in predictions])
-                    results.append([materia, semestre, np.round(materia_demand_in_groups)])
+                    demand_in_groups += np.sum([np.ceil(prediction / max_students_per_group) for prediction in predictions])
 
-                    demand_in_groups += materia_demand_in_groups
-
-                df = pd.DataFrame(results, columns=['Materia', 'Semestre', 'Secuencias necesarias'])
-                st.title(f"Semestre {semestre}")
-                st.dataframe(df)
+                    st.write(f"La materia {materia} pertenece a {semestre}. Necesita aproximadamente {demand_in_groups:.0f} secuencias (grupos que necesitan ser formados).")
 
                 if semestre_selected == "Todos los semestres":
                     semestre_demand_in_groups[semestre] = demand_in_groups

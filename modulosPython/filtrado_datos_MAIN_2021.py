@@ -56,7 +56,7 @@ def main():
         if st.button("Predicción de demanda de secuencias para el Plan 2021"):
             st.write("Redirigiendo al programa de predicción...")
             # URL de redirección
-            url = "http://localhost:8506"
+            url = "http://localhost:8504"
             webbrowser.open_new_tab(url)
 
 if __name__ == "__main__":
